@@ -218,3 +218,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+data/*.xlsx
+data/*.csv
+Mentah_*/
+SiapMining_*/
+*.7z
