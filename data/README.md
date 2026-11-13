@@ -13,15 +13,16 @@ Berkas data **tidak disertakan** di repositori ini, karena berisi data transaksi
 
 - Nama konsumen diganti kode konsisten (C0001 dan seterusnya). Nama yang sama selalu mendapat kode yang sama.
 - Alamat konsumen dihapus.
-- Nama kasir diganti kode K001.
+- Berkas `data_laundry_anonim.xlsx` masih memuat nama kasir. Kolom ini dibuang oleh `pembersihan_data_laundry.py`, sehingga data siap mining tidak memuatnya. Berkas anonim tidak disertakan di repositori.
+- Versi yang dibagikan ke publik adalah `Mentah_NIM.7z`, dengan nama kasir diganti kode K001.
 - Teks bebas (Catatan dan Items Satuan) dipindai untuk nomor telepon dan email. Tidak ditemukan pada data ini.
 
 ## Berkas yang dibutuhkan
 
 | Berkas | Keterangan |
 |---|---|
-| `data_laundry_anonim.xlsx` | Masukan untuk `pembersihan_data.py`. Hasil anonimisasi dari ekspor 1010dry. |
-| `data_laundry_bersih.xlsx` | Keluaran `pembersihan_data.py`. Dipakai oleh `eda.py` dan `modeling.py`. |
+| `data_laundry_anonim.xlsx` | Masukan untuk `pembersihan_data_laundry.py`. Hasil anonimisasi dari ekspor 1010dry. |
+| `data_laundry_bersih.xlsx` | Keluaran `pembersihan_data_laundry.py`. Dipakai oleh `eda_laundry.py` dan `modeling_laundry.py`. |
 
 Letakkan berkas di folder ini. Keduanya sudah dimasukkan ke `.gitignore` sehingga tidak ikut terunggah.
 
