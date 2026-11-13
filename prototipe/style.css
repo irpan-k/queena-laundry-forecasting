@@ -1,0 +1,69 @@
+/* Variabel khusus untuk grafik SVG agar sinkron dengan tema baru */
+:root {
+  --line: #e2e8f0; /* slate-200 */
+  --muted: #64748b; /* slate-500 */
+  --pri: #2563eb; /* blue-600 */
+  --acc: #f59e0b; /* amber-500 */
+  --band: rgba(245, 158, 11, 0.15); /* amber-500 dengan opacity */
+}
+
+body {
+  background-color: #f8fafc; /* slate-50 */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Styling elemen yang digenerate oleh Javascript */
+#tb td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  font-size: 0.875rem;
+}
+#tb tr:last-child td {
+  border-bottom: none;
+}
+#tb tr:hover td {
+  background-color: #f8fafc;
+}
+
+#wk p {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: #1e3a8a;
+  line-height: 1.6;
+}
+#wk b {
+  color: #1e40af;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Styling Pills (Lencana) yang digenerate Javascript */
+.pill {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+.pill.ok {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+.pill.warn {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Animasi transisi sederhana */
+button,
+input {
+  transition: all 0.2s ease-in-out;
+}
