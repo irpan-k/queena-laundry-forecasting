@@ -35,12 +35,12 @@ Halaman ini memakai Tailwind dan Google Fonts dari internet, jadi tampilannya le
 │   ├── index.html
 │   ├── style.css
 │   └── app.js
-├── src/                     Skrip Python untuk seluruh tahap
-│   ├── pembersihan_data.py  Pembersihan dan transformasi data
-│   ├── eda.py               Exploratory Data Analysis (statistik dan grafik)
-│   └── modeling.py          Pemodelan dan evaluasi (rolling origin mingguan)
-├── data/                    Penjelasan data (berkas data tidak disertakan)
-├── hasil/                   Keluaran skrip (dibuat ulang saat dijalankan)
+├── src/                               Skrip Python untuk seluruh tahap
+│   ├── pembersihan_data_laundry.py    Pembersihan dan transformasi data
+│   ├── eda_laundry.py                 Exploratory Data Analysis (statistik dan grafik)
+│   └── modeling_laundry.py            Pemodelan dan evaluasi (rolling origin mingguan)
+├── data/                              Penjelasan data (berkas data tidak disertakan)
+├── hasil/                             Keluaran skrip (dibuat ulang saat dijalankan)
 ├── requirements.txt
 └── LICENSE
 ```
@@ -55,21 +55,23 @@ pip install -r requirements.txt
 
 Jalankan secara berurutan. Berkas data tidak disertakan di repositori (lihat `data/README.md`).
 
+Langkah 1 membutuhkan berkas hasil anonimisasi (nama konsumen sudah disamarkan). Kolom Nama Kasir dibuang oleh skrip ini, sehingga tidak ada nama asli di data siap mining.
+
 ```bash
 # 1. Pembersihan: dari data hasil anonimisasi menjadi data siap mining
-python src/pembersihan_data.py data/data_laundry_anonim.xlsx data/data_laundry_bersih.xlsx
+python src/pembersihan_data_laundry.py data/data_laundry_anonim.xlsx data/data_laundry_bersih.xlsx
 
 # 2. EDA: statistik, uji, dan 9 grafik
-python src/eda.py data/data_laundry_bersih.xlsx hasil/eda
+python src/eda_laundry.py data/data_laundry_bersih.xlsx hasil/eda
 
 # 3. Pemodelan dan evaluasi
-python src/modeling.py data/data_laundry_bersih.xlsx hasil/model
+python src/modeling_laundry.py data/data_laundry_bersih.xlsx hasil/model
 ```
 
 ## Catatan proses data
 
-- Data mentah berasal dari ekspor aplikasi 1010dry (5.881 baris). Nama konsumen diganti kode konsisten (C0001 dan seterusnya), kolom alamat dihapus, dan nama kasir diganti kode.
-- `pembersihan_data.py` membuang 10 baris ringkasan, 149 transaksi batal, dan 111 pembelian paket member, sehingga tersisa 5.611 transaksi.
+- Data mentah berasal dari ekspor aplikasi 1010dry (5.881 baris). Nama konsumen diganti kode konsisten (C0001 dan seterusnya) dan kolom alamat dihapus saat anonimisasi. Versi yang dibagikan (Mentah_NIM.7z) juga menyamarkan nama kasir (K001) dan mengosongkan kode pada baris ringkasan.
+- `pembersihan_data_laundry.py` membuang 10 baris ringkasan, 149 transaksi batal, dan 111 pembelian paket member, sehingga tersisa 5.611 transaksi.
 - **Kategori Cuci Komplit dan Cuci + Setrika tidak digabung pada tahap pembersihan.** Penggabungan dilakukan saat analisis, sesuai konfirmasi karyawan bahwa keduanya layanan yang sama. Penggabungan ini hanya mengubah label, bukan isi data.
 - Hari terakhir (18 September 2026) dibuang karena datanya tidak lengkap, sehingga agregat harian mencakup 364 hari dengan 5.605 transaksi.
 - Hari tanpa transaksi (lima hari tutup saat Lebaran dan Idul Adha) diberi penanda. Pada masukan model, nilainya diganti dengan nilai hari yang sama pada minggu sebelumnya.
