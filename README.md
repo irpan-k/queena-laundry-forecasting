@@ -40,7 +40,7 @@ Halaman ini memakai Tailwind dan Google Fonts dari internet, jadi tampilannya le
 │   ├── eda_laundry.py                 Exploratory Data Analysis (statistik dan grafik)
 │   └── modeling_laundry.py            Pemodelan dan evaluasi (rolling origin mingguan)
 ├── data/                              Penjelasan data (berkas data tidak disertakan)
-├── hasil/                             Keluaran skrip (dibuat ulang saat dijalankan)
+├── hasil/                             Hasil EDA dan model (dapat dibuat ulang dengan src/)
 ├── requirements.txt
 └── LICENSE
 ```
